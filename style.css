@@ -1,8 +1,8 @@
 :root {
     /* カスタムカラー変数 */
-    --text-color: #DF927D;
+    --text-color: #663300;
     --text-color-blend: #030558;
-    --back-up-color: #E7FAF9;
+    --back-up-color: #663300;
 }
 
 * {
@@ -15,40 +15,65 @@
 }
 
 body {
+    background-color: #FFF5EE;
+    color: #663300;
+}
+
+header {
     /* 背景設定 */
     width: 100%;
     height: 100vh;
-    background: url(wallpaperbetter.jpg); /* 背景画像 */
+    background: url(noen.jpg); /* 背景画像 */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
+.header-logo {
+    top: 2rem;
+    margin-left: 4rem;
+    position: fixed;
+}
+
+.logo-image {
+    width: 60px;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
 nav {
-    /* ナビゲーションバーのスタイリング */
-    width: 100%;
-    padding: 2rem 5rem;
+    /* ナビゲーションバーのスタイリング */ width: 100%;
+    padding: 1rem 5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed; /* 固定 */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* 他の要素より前面に表示 */ 
 }
 
-.logo h1 {
-    /* ロゴのテキストスタイリング */
-    font-size: 27px;
-    color: #fff;
-}
-
-ul {
-    /* ナビゲーションメニューリスト */
-    list-style: none;
+nav ul{
     display: flex;
+    text-align: center;
+    list-style: none;
     gap: 3rem;
+    margin-left: 250px;
 }
 
-li a {
-    /* 各ナビゲーションリンク */
-    color: #fff;
+nav li{
+    display: table-cell;
+    min-width: 50px;
+    }
+
+nav a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding-bottom: 5px;
+        
+    color: #663300;
     font-size: 18px;
     font-weight: 600;
     text-decoration: none;
@@ -57,14 +82,14 @@ li a {
     transition: 0.6s;
 }
 
-li a:hover {
-    /* ホバー時のリンク背景色 */
-    background-color: var(--text-color);
+
+nav li:hover{
+    color: #663300;
+    border-bottom: 3px solid #663300;
 }
 
-.active {
-    /* 現在のページのリンクの背景色 */
-    background-color: var(--text-color);
+nav li.active{
+    border-bottom: 3px solid #663300;
 }
 
 button {
@@ -86,35 +111,151 @@ button:hover {
     color: #000;
 }
 
-.home-content {
-    /* ホームコンテンツのレイアウト */
-    padding: 2rem 5rem;
+.flex-box {
     display: flex;
-    align-items: center;
-    height: 70vh;
+    flex-direction: row-reverse;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 250px; /* 初期位置 */
 }
 
-.home-container {
-    /* ホームコンテナの幅と配置 */
-    align-items: center;
-    width: 600px;
+.flex-item1 {
+    color: #8B4513;
+    margin-right: 644px;
+    background: #fff;
+    font-size: 30px;
+    writing-mode: vertical-rl;
+} 
+
+.flex-item {
+    color: #8B4513;
+    margin-right: 30px;
+    background: #fff;
+    font-size: 30px;
+    writing-mode: vertical-rl; 
 }
 
-.home-container h1 {
-    /* ホーム見出しのスタイル */
-    color: #fff;
-    font-size: 5rem;
+.stop {
+    margin-top: 250px;
+}
+.clamh1 {
+    margin-top: 700px;
+    text-align:center;
     padding-bottom: 30px;
 }
 
-.home-container p {
-    /* ホームの段落スタイル */
-    color: #fff;
-    padding-bottom: 20px;
+.clam {
+    text-align:center;
+    width: 970px;
+    height: 550px;
+    margin: auto;
+    padding: 50px 50px 50px 50px;
+    background-color: #fff;
+}
+.clam p{
+    text-align: left;
 }
 
-#explore {
-    /* Exploreボタンの余白 */
-    margin-left: 20px;
+.news {
+    margin-top: 100px;
+    text-align:center;
+    padding-bottom: 30px;
+}
+
+.shikih1 {
+    margin-top: 400px;
+    text-align:center;
+    padding-bottom: 30px;
+}
+
+.shiki {
+    
+}
+
+.storeh1 {
+    position: relative;
+    top: 5rem;
+    text-align:center;
+    padding-bottom: 50px;
+}
+
+.store {
+    padding: 80px 200px 0px 200px;
+    text-align: center;
+    margin-top: 30px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.store-item {
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.store-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.store-item h3 {
+    color: var(--primary-color);
+}
+
+.store-item p {
+    color: #663300;
+}
+
+.store-item span {
+    font-size: 25px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* メニュー個別ページ */
+#store-colam {
+    display: inline-block;
+    width: auto;
+    height: 520px;
+    margin: 50px 50px 50px 64px;
+    background-color: #333;
+    border-radius: 30px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+}
+
+#store-colam .storeleft {
+    display: flex;
+    justify-content: space-between;   
+ 
+}
+
+#store-colam .colam>p {
+    width: 100%;
+}
+
+/*　画像の拡大　*/
+
+.zoomIn img{
+	transform: scale(1);
+	transition: .5s ease-in-out;/*移り変わる速さを変更したい場合はこの数値を変更*/
+}
+
+.zoomIn a:hover img{/*hoverした時の変化*/
+	transform: scale(1.1);/*拡大の値を変更したい場合はこの数値を変更*/
+}
+
+.instagram{
+    margin-top: 100px;
+    text-align:center;
+    padding-bottom: 30px;
 }
 

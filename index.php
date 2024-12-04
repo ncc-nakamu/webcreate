@@ -11,7 +11,7 @@
     <header>
         <div class="header-logo">
             <a href="index.html">
-                <img src="images\noen.jpg" alt="logo" width="50" height="60" class="logo-image">
+                <img src="images\ncc.png" alt="logo" width="50" height="60" class="logo-image">
             </a>
         </div>
 

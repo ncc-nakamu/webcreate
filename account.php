@@ -60,7 +60,7 @@
             $stmt->bindParam(':password', $hashed_password);
             $stmt->execute();
 
-            header("Location: http://localhost/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0/1114/index.html");
+            header("Location: http://localhost/websys/web/webcreate/index.php");
             exit();
         } catch(PDOException $e) {
             echo "<p>登録できませんでした。もう一度お試しください。</p>";
@@ -70,3 +70,4 @@
     ?>
 </body>
 </html>
+

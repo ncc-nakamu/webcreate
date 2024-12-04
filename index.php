@@ -22,7 +22,7 @@
             <div>logo</div>
 
             <div class="login-sec">
-                <a href="login.html"><button>ログイン</button></a>
+                <a href="login.php"><button>ログイン</button></a>
             </div>
         </nav>
 

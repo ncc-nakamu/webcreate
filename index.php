@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
 </head>
 
 <body>
@@ -20,8 +22,8 @@
                 <ul>
                     <li><a class="active" href="#">農園とは</a></li>
                     <li><a href="#">野菜について</a></li>
-                    <li><a href="#">お買い物</a></li>
-                    <li><a href="#">食文化について</a></li>
+                    <li><a href="#store-top">お買い物</a></li>
+                    <li><a href="#news-top">お知らせ</a></li>
                     <li><a href="#">お問い合わせ</a></li>
                 </ul>
             </div>
@@ -65,69 +67,89 @@
         </p>
     </div>
 
-    <div class="news">
+    <div class="newsh1" id="news-top">
         <h1>お知らせ</h1>
     </div>
+    <div class="news">
+        <div class="news-clam">
+            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\zinenjo.png" alt="11月ニュース"></span></a></div>
+                <h3>11月ニュースレター</h3>
+                <p>2024.10.11</p>
+        </div>
+        <div class="news-clam">
+            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\ithigo.png" alt="10月ニュース"></span></a></div>
+                <h3>10月ニュースレター</h3>
+                <p>2024.11.11</p>
+        </div>
+        <div class="news-clam">
+            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\renkon.png" alt="9月ニュース"></span></a></div>
+                <h3>9月ニュースレター</h3>
+                <p>2024.9.11</p>
+        </div>
+    </div>   
 
     <div class="shikih1">
         <h1>四季を楽しむ野菜</h1>
     </div>
-    <div class="shiki">
-        <ul class="slider">
-            <li><img src="images\ithigo.png" alt="いちご"></li>
-            <li><img src="images\renkon.png" alt="れんこん"></li>
-            <li><img src="images\nihonnashi.png" alt="日本なし"></li>
-            <li><img src="images\ningin.png" alt="にんじん"></li>
-            <li><img src="images\zinenjo.png" alt="じねんじょ"></li>
-            <li><img src="images\rurekuthe.png" alt="西洋なし"></li>
-        </ul>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1"><img src="images\ithigo.png" alt="いちご"></div>
+            <div class="swiper-slide slide2"><img src="images\renkon.png" alt="れんこん"></div>
+            <div class="swiper-slide slide3"><img src="images\nihonnashi.png" alt="日本なし"></div>
+            <div class="swiper-slide slide4"><img src="images\rurekuthe.png" alt="西洋なし"></div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </div>
 
-    <div class="storeh1">
+    <div class="storeh1" id="store-top">
         <h1>オンラインストア</h1>
     </div>
+    
     <div class="store">
             <br>
             <div class="store-item">
                 <div class="zoomIn"><a href="#"><span class="mask"><img src="images\zinenjo.png" alt="じねんじょ"></span></a></div>
                 <h3>じねんじょ</h3>
-                <p>すりおろしても変色しにくく、<br>自然な甘さと強い粘りが特徴です。</p>
-                <span>¥</span>
+                <p>自然の甘みと粘り強さ、<br>絶品の自然薯をお届けします。</p>
+                <span>¥300</span>
             </div>
             <div class="store-item">
                 <div class="zoomIn"><a href="#"><span class="mask"><img src="images\ningin.png" alt="にんじん"></span></a></div>
                 <h3>にんじん</h3>
-                <p>化学肥料や化学農薬の使用を低減する<br>などの環境に配慮した<br>栽培を実践しています。</p>
-                <span>¥</span>
+                <p>シャキシャキ食感と甘みの人参、<br>旬の味わいを楽しんでください。</p>
+                <span>¥200</span>
             </div>
             <div class="store-item">
                 <div class="zoomIn"><a href="#"><span class="mask"><img src="images\renkon.png" alt="れんこん"></span></a></div>
                 <h3>れんこん</h3>
-                <p>高品質なれんこんを出荷できるよう、<br>種れんこんの選抜や土作りに力を入れて取り組んでいます。</p>
-                <span>¥</span>
+                <p>ほくほく食感の蓮根、<br>栄養たっぷりで食卓を彩ります。</p>
+                <span>¥600</span>
             </div>
     </div>
     <div class="store">
             <div class="store-item">
                 <div class="zoomIn"><a href="#"><span class="mask"><img src="images\rurekuthe.png" alt="西洋なし"></span></a></div>
                 <h3>西洋なし</h3>
-                <p>西洋なしの中では最高級の品質で、<br>とろけるような食感や<br>芳醇な香りがあります。</p>
-                <span>¥</span>
+                <p>西洋なしの最高峰。<br>とろけるような食感と芳醇な香り。</p>
+                <span>¥800</span>
             </div>
             <div class="store-item">
                 <div class="zoomIn"><a href="#"><span class="mask"><img src="images\nihonnashi.png" alt="日本なし"></span></a></div>
                 <h3>日本なし</h3>
-                <p>光センサー選果システムを<br>導入した選果場において、<br>果実の糖度と着色を<br>１玉ずつ測定・選別して<br>品質安定を実現しています。</p>
-                <span>¥</span>
+                <p>ジューシーで甘い、日本梨の<br>本当の美味しさを味わってください。</p>
+                <span>¥300</span>
             </div>
             <div class="store-item">
                 <div class="zoomIn"><a href="#"><span class="mask"><img src="images\ithigo.png" alt="いちご"></span></a></div>
                 <h3>いちご</h3>
-                <p>甘くほどよい酸味とのバランスもよくとてもジューシー。</p>
-                <span>¥</span>
+                <p>甘くほどよい酸味とのバランス<br>もよくとてもジューシーないちご。</p>
+                <span>¥400</span>
             </div>
             <!-- 他のメニューアイテムも同様に追加 -->
     </div>
+
     <div class="instagram">
         <h1>instagram</h1>
     </div>
@@ -158,5 +180,21 @@
     }
     });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    const swiper = new Swiper(".swiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+        loop: true, //繰り返しをする
+        centeredSlides: true, //アクティブなスライドを中央に表示
+        slidesPerView: 3, //スライダーのコンテナ上に2枚同時に表示
+        spaceBetween: 16, //スライド間の距離を16pxに
+        speed: 600 //スライドの推移時間を600msに
+    });
+    </script>
+
 </body>
 </html>

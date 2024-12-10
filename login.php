@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } catch(PDOException $e) {
         exit($e->getMessage());
     }
+    
 }
 ?>
 <!DOCTYPE html>

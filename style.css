@@ -29,12 +29,14 @@ header {
     background-size: cover;
 }
 
+/* ロゴの位置指定 */ 
 .header-logo {
     top: 2rem;
     margin-left: 4rem;
     position: fixed;
 }
 
+/* ロゴの画像サイズ指定 */
 .logo-image {
     width: 60px;
     height: auto;
@@ -42,8 +44,9 @@ header {
     margin: 10px 0;
 }
 
+/* ナビゲーションバーのスタイリング */ 
 nav {
-    /* ナビゲーションバーのスタイリング */ width: 100%;
+    width: 100%;
     padding: 1rem 5rem;
     display: flex;
     align-items: center;
@@ -111,6 +114,7 @@ button:hover {
     color: #000;
 }
 
+/* 四季のおいしい～部分 */
 .flex-box {
     display: flex;
     flex-direction: row-reverse;
@@ -136,15 +140,19 @@ button:hover {
     writing-mode: vertical-rl; 
 }
 
+/* flex-boxの固定位置 */
 .stop {
     margin-top: 250px;
 }
+
+/* 新潟の野菜について */
 .clamh1 {
     margin-top: 700px;
     text-align:center;
     padding-bottom: 30px;
 }
 
+/* 新潟の野菜についての内容文 */
 .clam {
     text-align:center;
     width: 970px;
@@ -157,22 +165,98 @@ button:hover {
     text-align: left;
 }
 
-.news {
+/*お知らせ*/
+.newsh1{
     margin-top: 100px;
     text-align:center;
     padding-bottom: 30px;
 }
 
+.news {
+    text-align:center;
+    width: 1000px;
+    height: 320px;
+    margin: auto;
+    padding: 50px 50px 50px 50px;
+    display: flex;
+    border: 1px solid;
+    border-right: none;
+    border-left: none;
+}
+
+/* ニュース エリアの指定*/
+.news-clam {
+    display: inline-block;
+    width: 400px;
+    height: 300px;
+    margin: 20px;
+    margin-top: 0;
+    border-radius: 10px;
+}
+
+/* ニュース 画像指定 */
+.news-clam img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.news-clam h3 {
+    color: var(--primary-color);
+    text-align: left;
+}
+
+.news-clam p {
+    color: #663300;
+    text-align: right;
+}
+
+/* 四季を楽しむ野菜 h1*/
 .shikih1 {
-    margin-top: 400px;
+    margin-top: 200px;
     text-align:center;
     padding-bottom: 30px;
 }
 
-.shiki {
-    
-}
+/* Swiper スライド部分*/
+.swiper {
+    /*スライダーの幅と高さを調整*/
+    width: 90%;
+    height: 320px;
+    margin: 0.5rem auto 2rem;
+  }
+  
+  .swiper-slide {
+    /*スライド要素の幅と高さを調整*/
+    width: 100%;
+    height: 100%;
+  
+    /*テキストの位置調整*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    /*テキストの色と太さを指定*/
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  /*各スライドの背景色の設定*/
+  .slide1 {
+    background-color: #c8e6c9;
+  }
+  
+  .slide2 {
+    background-color: #80cbc4;
+  }
+  
+  .slide3 {
+    background-color: #4db6ac;
+  }
+  .slide4 {
+    background-color: #26a69a;
+  }
 
+/* オンラインストア h1 */
 .storeh1 {
     position: relative;
     top: 5rem;
@@ -180,6 +264,7 @@ button:hover {
     padding-bottom: 50px;
 }
 
+/* オンラインストア 位置指定 */
 .store {
     padding: 80px 200px 0px 200px;
     text-align: center;
@@ -189,10 +274,11 @@ button:hover {
     display: flex;
 }
 
+/* オンラインストア 商品ブロックの指定*/
 .store-item {
     display: inline-block;
     width: 400px;
-    height: 500px;
+    height: 400px;
     margin: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -200,6 +286,7 @@ button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* オンラインストア 商品画像指定 */
 .store-item img {
     width: 100%;
     border-radius: 5px;
@@ -253,9 +340,11 @@ button:hover {
 	transform: scale(1.1);/*拡大の値を変更したい場合はこの数値を変更*/
 }
 
+/* インスタ h1 */
 .instagram{
-    margin-top: 100px;
+    position: relative;
+    top: 5rem;
     text-align:center;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 }
 

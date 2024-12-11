@@ -1,20 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新潟の野菜 - オンラインストア</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-</head>
 
+</head>
 
 <body>
     <header>
         <div class="header-logo">
             <a href="index.html">
-                <img src="images/ncc.png" alt="logo" width="50" height="60" class="logo-image">
+                <img src="images\ncc.png" alt="logo" width="50" height="60" class="logo-image">
             </a>
         </div>
 
@@ -30,22 +29,20 @@
             </div>
 
             <div class="login-sec">
-                <?php if ($loggedIn): ?>
-                    <span>ようこそ、<?php echo htmlspecialchars(substr($_SESSION['email'], 0, 3)); ?>さん</span>
-                    <a href="logout.php"><button class="login-button">ログアウト</button></a>
-                <?php else: ?>
-                    <a href="login.php"><button class="login-button">ログイン</button></a>
-                <?php endif; ?>
+                <a href="login.php"><button>ログイン</button></a>
             </div>
         </nav>
-        <div class="flex-box">
-            <div><h1 class="flex-item1">四季のおいしいを</h1></div>
-            <div><h1 class="flex-item">大切に育て</h1></div>
-            <div><h1 class="flex-item">つないでいく</h1></div>
-        </div>
+            <div class="flex-box">
+                <div><h1 class="flex-item1">四季のおいしいを</h1></div>
+                <div><h1 class="flex-item">大切に育て</h1></div>
+                <div><h1 class="flex-item">つないでいく</h1></div>
+            </div>
+        
     </header>
 
-    <div class="stop"></div>
+    <div class="stop">
+
+    </div>
 
     <div class="clamh1">
         <h1>新潟の野菜</h1>
@@ -70,28 +67,26 @@
         </p>
     </div>
 
-
     <div class="newsh1" id="news-top">
         <h1>お知らせ</h1>
     </div>
     <div class="news">
         <div class="news-clam">
-            <div class="zoomIn"><a href="#"><span class="mask"><img src="images/zinenjo.png" alt="11月ニュース"></span></a></div>
-            <h3>11月ニュースレター</h3>
-            <p>2024.10.11</p>
+            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\zinenjo.png" alt="11月ニュース"></span></a></div>
+                <h3>11月ニュースレター</h3>
+                <p>2024.10.11</p>
         </div>
         <div class="news-clam">
-            <div class="zoomIn"><a href="#"><span class="mask"><img src="images/ithigo.png" alt="10月ニュース"></span></a></div>
-            <h3>10月ニュースレター</h3>
-            <p>2024.11.11</p>
+            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\ithigo.png" alt="10月ニュース"></span></a></div>
+                <h3>10月ニュースレター</h3>
+                <p>2024.11.11</p>
         </div>
         <div class="news-clam">
-            <div class="zoomIn"><a href="#"><span class="mask"><img src="images/renkon.png" alt="9月ニュース"></span></a></div>
-            <h3>9月ニュースレター</h3>
-            <p>2024.9.11</p>
+            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\renkon.png" alt="9月ニュース"></span></a></div>
+                <h3>9月ニュースレター</h3>
+                <p>2024.9.11</p>
         </div>
-    </div>
-
+    </div>   
 
     <div class="shikih1">
         <h1>四季を楽しむ野菜</h1>
@@ -164,28 +159,27 @@
     </footer>
 
     <script>
-    window.addEventListener('scroll', () => {
-        const flexBox = document.querySelector('.flex-box');
-        const stop = document.querySelector('.stop');
+   window.addEventListener('scroll', () => {
+    const flexBox = document.querySelector('.flex-box');
+    const stop = document.querySelector('.stop');
 
-        // .stopの位置と高さを取得
-        const stopPosition = stop.getBoundingClientRect().top + window.scrollY;
-        const stopHeight = stop.offsetHeight;
+    // .stopの位置と高さを取得
+    const stopPosition = stop.getBoundingClientRect().top + window.scrollY;
+    const stopHeight = stop.offsetHeight;
 
-        // 現在のスクロール位置を取得
-        const currentScroll = window.scrollY;
+    // 現在のスクロール位置を取得
+    const currentScroll = window.scrollY;
 
-        // スクロール時に.flex-boxを.stopの下に固定
-        if (currentScroll + flexBox.offsetHeight >= stopPosition + stopHeight) {
-            flexBox.style.position = 'absolute';
-            flexBox.style.top = `${stopPosition + stopHeight}px`;
-        } else {
-            flexBox.style.position = 'fixed';
-            flexBox.style.top = '250px'; // 初期値
-        }
+    // スクロール時に.flex-boxを.stopの下に固定
+    if (currentScroll + flexBox.offsetHeight >= stopPosition + stopHeight) {
+        flexBox.style.position = 'absolute';
+        flexBox.style.top = `${stopPosition + stopHeight}px`;
+    } else {
+        flexBox.style.position = 'fixed';
+        flexBox.style.top = '250px'; // 初期値
+    }
     });
-</script>
-
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>

@@ -28,10 +28,22 @@
                 </ul>
             </div>
 
+            <input type="checkbox" id="overlay-input" />
+            <label for="overlay-input" id="overlay-button"><span></span></label>
+            <div class="bergar" id="overlay">
+                <ul>
+                <li><a href="#">ログイン</a></li>
+                <li><a href="#">ログアウト</a></li>
+                <li><a href="#">アカウント作成</a></li>
+                </ul>
+            </div>
+
             <div class="login-sec">
                 <a href="login.php"><button>ログイン</button></a>
             </div>
+
         </nav>
+
             <div class="flex-box">
                 <div><h1 class="flex-item1">四季のおいしいを</h1></div>
                 <div><h1 class="flex-item">大切に育て</h1></div>

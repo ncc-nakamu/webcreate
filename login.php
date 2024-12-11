@@ -1,68 +1,127 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
+<?php 
+
+/**
+ * セッションスタート
+ */
+ini_set('session.gc_maxlifetime', 1800);
+ini_set('session.gc_divisor', 1);
+session_start();
+session_regenerate_id(); // セッションIDを新しいものに置き換える（★セッションハイジャック）
+
+/**
+ * DB接続情報
+ */
+const DB_HOST     = 'mysql:host=localhost;dbname=webna;charset=utf8';
+const DB_USER     = 'root';
+const DB_PASSWORD = '';
+
+// 会員登録・ログアウト完了メッセージの取得
+if ( isset( $_GET['msg'] ) ) $success_logout_msg = $_GET['msg'];
+
+/**
+ * ログイン
+ */
+if (isset($_POST['login_btn']) && 
+   (isset($_POST['login_id'])  && $_POST['login_id'] != '') &&
+   (isset($_POST['password'])  && $_POST['password'] != '')
+   ) 
+{
+    /**
+     * トークンチェック（★CSRF）
+     */
+    if (empty($_SESSION['login_token']) || ($_SESSION['login_token'] !== $_POST['login_token'])) exit('不正なリクエストです');
+    if (isset($_SESSION['login_token'])) unset($_SESSION['login_token']);//トークン破棄
+    if (isset($_POST['login_token']))    unset($_POST['login_token']);//トークン破棄
+
+    // POSTデータの取得
+    $login_id = $_POST['login_id'];
     $password = $_POST['password'];
-
-    try {
-        $dsn = new PDO('mysql:host=localhost;dbname=webna;charset=utf8', 'root', '');
-        $dsn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $stmt = $dsn->prepare("SELECT * FROM user WHERE email = :email");
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
-
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($user && password_verify($password, $user['password'])) {
-            echo "<p>ログイン成功！</p>";
-        } else {
-            echo "<p>メールアドレスまたはパスワードが違います。</p>";
-        }
-    } catch(PDOException $e) {
-        exit($e->getMessage());
-    }
     
+    try {
+        /**
+         * DB接続処理
+         */
+        $pdo = new PDO(DB_HOST, DB_USER, DB_PASSWORD, [
+            PDO::ATTR_ERRMODE          => PDO::ERRMODE_EXCEPTION, // 例外が発生した際にスローする
+            PDO::ATTR_EMULATE_PREPARES => false,                  // （★SQLインジェクション対策）
+        ]);
+
+        /**
+         * ログイン処理
+         */
+        $sql = ('
+            SELECT login_id, password, name
+            FROM user1
+            WHERE login_id = :LOGIN_ID
+        ');
+        $stmt = $pdo->prepare($sql);
+        // プレースホルダーに値をセット
+        $stmt->bindValue(':LOGIN_ID', $login_id, PDO::PARAM_STR);
+        // SQL実行
+        $stmt->execute();
+        
+        /**
+         * ログイン情報が正しいかをチェック
+         */
+        $user_info = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if (count($user_info) && password_verify( $password, $user_info[0]['password'] )) {
+
+            // ログイン状態確認用にセッションにデータ保存（★ログイン機能の実現）
+            $_SESSION['user'] = array(
+                'name'     => $user_info[0]['name'],
+                'login_id' => $user_info[0]['login_id'],
+            );
+
+            // ログイン後はトップページへ遷移する
+            header('Location: ./index.php');
+            exit();
+        } else {
+            $err_msg = 'ログイン情報に誤りがあります。';
+        }
+
+    } catch (PDOException $e) {
+          echo '接続失敗' . $e->getMessage();
+          exit();
+    }
+    // DBとの接続を切る
+    $pdo = null;
+    $stmt = null;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>ログイン画面</title>
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <div class="logo"><a href="index.html"><h1>ロゴ</h1></a></div>
+    <div>
+        <h2>ログイン画面</h2>
 
-    <section>
+        <!-- ログアウト成功メッセージ -->
+        <?php if(isset($success_logout_msg)) echo '<p class="success_logout_msg">' . $success_logout_msg . '</p>' ; ?>
+        
+        <!-- ログイン失敗メッセージ -->
+        <?php if(isset($err_msg)) echo '<p class="err-msg">' . $err_msg . '</p>' ; ?>
+
         <form action="login.php" method="post">
-            <h1 class="log">ログイン</h1>
+            <p><label for="login_id">ID</label><input type="text" name="login_id"></p>
+            <p><label for="password">パスワード</label><input type="password" name="password"></p>
+            <input type="submit" value="ログイン" name="login_btn">
 
-            <div class="inputbox">
-                <ion-icon name="mail-outline"></ion-icon>
-                <input type="email" name="email" required>
-                <label for="">ユーザー</label>
-            </div>
-
-            <div class="inputbox">
-                <ion-icon name="lock-closed-outline"></ion-icon>
-                <input type="password" name="password" required>
-                <label for="">パスワード</label>
-            </div>
-
-            <div class="forget">
-                <label for=""><input type="checkbox">次回から自動的にログイン</label>
-                <a href="#">パスワードをお忘れですか？</a>
-            </div>
-
-            <button type="submit">ログイン</button>
-
-            <div class="register">
-                <p>アカウントをお持ちでないですか？ <a href="account.php">登録</a></p>
-            </div>
+            <?php 
+            // 不正リクエストチェック用のトークン生成（★CSRF）
+            $token = bin2hex(random_bytes(32));
+            $_SESSION['login_token'] = $token;
+            echo '<input type="hidden" name="login_token" value="'.$token.'" />';
+            ?>
         </form>
-    </section>
+    
+        <a href="./regist.php">会員登録はこちら</a>
+    </div>
 </body>
 </html>
 

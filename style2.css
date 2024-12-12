@@ -3,31 +3,42 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('wallpaperbetter.jpg'); 
-    background-size: cover;
-    background-position: center;
+    background: url('wallpaperbetter.jpg') center/cover no-repeat;
     color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    margin: 2rem 0;
 }
 
 /* セクション（フォームを囲む部分） */
 section {
     position: relative;
-    margin: auto;
+    width: 100%;
     max-width: 400px;
-    background-color: rgba(255, 255, 255, 0.1); /* 半透明で背景を見せる */
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
-    backdrop-filter: blur(55px);
-    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    margin: auto; /* 追加：セクションを垂直方向に中央に配置 */
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 2rem 3rem;
 }
 
 /* タイトル */
@@ -37,17 +48,21 @@ section {
     margin-bottom: 1.5rem;
 }
 
-.logo h1 {
-    font-size: 27px;
-    color: #fff;
-    padding: 2rem 5rem;
-}
-
 /* 入力ボックス */
 .inputbox {
     position: relative;
-    margin: 20px 0;
+    margin: 1.5rem 0;
     border-bottom: 2px solid #fff;
+    width: 100%; /* 追加：入力ボックスの幅を100%に設定 */
+}
+
+.inputbox ion-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1.2rem;
 }
 
 .inputbox input {
@@ -69,61 +84,82 @@ section {
     color: #fff;
     font-size: 1rem;
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: top 0.3s ease, font-size 0.3s ease;
 }
 
-/* 入力フィールドがフォーカスされたときのラベル位置調整 */
+/* 入力フィールドがフォーカスされたときまたは有効な入力があるときにラベルを上に移動 */
 .inputbox input:focus ~ label,
-.inputbox input:valid ~ label {
+.inputbox input.has-value ~ label {
     top: -10px;
     font-size: 0.9rem;
+}
+
+/* 忘れ物リンク */
+.forget {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    width: 100%; /* 追加：リンクの幅を100%に設定 */
+}
+
+.forget label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.forget input {
+    margin-right: 0.5rem;
+}
+
+.forget a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.forget a:hover {
+    text-decoration: underline;
 }
 
 /* ボタン */
 button {
     width: 100%;
     height: 45px;
-    background-color: #fff;
+    background: #fff;
     color: #000;
     border: none;
     border-radius: 25px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-    background-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.7);
 }
 
-/* すでにアカウントがある場合のリンク */
-.login {
+/* アカウントを持っていない場合のリンク */
+.register {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
-.login p {
+.register p {
     font-size: 0.9rem;
 }
 
-.login a {
+.register a {
     color: #fff;
     font-weight: bold;
     text-decoration: none;
 }
 
-.login a:hover {
+.register a:hover {
     text-decoration: underline;
 }
 
-/* フォーム内のアイコン（必要に応じて追加） */
-.inputbox ion-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #fff;
-    font-size: 1.2rem;
-}
+
 

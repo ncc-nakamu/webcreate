@@ -108,7 +108,7 @@ if (isset($_POST['regist_btn']) &&
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>会員登録画面</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style3.css">
 </head>
 <body>
     <div class="logo"><a href="index.php"><h1>ロゴ</h1></a></div>

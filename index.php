@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="header-logo">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="images\ncc.png" alt="logo" width="50" height="60" class="logo-image">
             </a>
         </div>
@@ -34,7 +34,7 @@
                 <ul>
                 <li><a href="login.php">ログイン</a></li>
                 <li><a href="#">ログアウト</a></li>
-                <li><a href="#">アカウント作成</a></li>
+                <li><a href="regist.php">アカウント作成</a></li>
                 </ul>
             </div>
 

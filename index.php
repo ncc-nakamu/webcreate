@@ -1,47 +1,3 @@
-<?php 
-/**
- * セッションスタート
- */
-ini_set('session.gc_maxlifetime', 1800);
-ini_set('session.gc_divisor', 1);
-session_start();
-session_regenerate_id(); // セッションIDを新しいものに置き換える（★セッションハイジャック）
-
-/**
- * ログインしていなければログイン画面へ強制リダイレクト
- */
-if (! isset($_SESSION['user1'])) {
-    header('Location: ./login.php');
-    exit();
-}
-
-/**
- * ログアウト
- */
-if (isset($_POST['logout'])) {
-
-    // トークンチェック（★CSRF）
-    if (empty($_SESSION['logout_token']) || ($_SESSION['logout_token'] !== $_POST['logout_token'])) exit('不正な投稿です');
-    if (isset($_SESSION['logout_token'])) unset($_SESSION['logout_token']);//トークン破棄
-    if (isset($_POST['logout_token'])) unset($_POST['logout_token']);//トークン破棄
-    
-    /**
-     * セッションを破棄する（★セッションハイジャック）
-     */
-    // セッション変数の中身をすべて破棄
-    $_SESSION = array();
-    // クッキーに保存されているセッションIDを破棄
-    if (isset($_COOKIE["PHPSESSID"])) setcookie("PHPSESSID", '', time() - 1800, '/');
-    // セッションを破棄
-    session_destroy();
-
-    // ログインページに戻る
-    $msg = urlencode("ログアウトしました。");
-    header('Location: ./login.php?msg=' . $msg);
-    exit();
-}
-
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -78,10 +34,8 @@ if (isset($_POST['logout'])) {
                 <ul>
                 <li><a href="login.php">ログイン</a></li>
                 <li><a href="#">ログアウト</a></li>
-                <li><a href="regist.php">アカウント作成</a></li>
+                <li><a href="#">アカウント作成</a></li>
                 </ul>
-                
-                
             </div>
 
             <!-- <div class="login-sec">

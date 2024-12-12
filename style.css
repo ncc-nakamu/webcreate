@@ -359,21 +359,56 @@ button:hover {
     font-weight: bold;
   }
   
-  /*各スライドの背景色の設定*/
-  .slide1 {
-    background-color: #c8e6c9;
-  }
-  
-  .slide2 {
-    background-color: #80cbc4;
-  }
-  
-  .slide3 {
-    background-color: #4db6ac;
-  }
-  .slide4 {
-    background-color: #26a69a;
-  }
+ /*各スライドの背景色の設定*/
+ .slide1 {
+  background: url(images/haru.png);
+  width: 500px;
+  height: 300px;
+}
+
+.slide2 {
+  background: url(images/natu.png);
+  width: 500px;
+  height: 300px;
+}
+
+.slide3 {
+  background: url(images/aki.png);
+  width: 500px;
+  height: 300px;
+}
+.slide4 {
+  background: url(images/fuyu.png);
+  width: 500px;
+  height: 300px;
+}
+
+.slide1 .border-radius{
+background-color: lightseagreen;
+}
+.slide2 .border-radius{
+background-color: orangered;
+}
+.slide3 .border-radius{
+background-color: goldenrod;
+}
+.slide4 .border-radius{
+background-color: lightskyblue;
+}
+.border-radius {
+  margin-top: 190px;
+  margin-left: 10px;
+  width: 120px;
+  height: 120px;
+  line-height: 70px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+}
+
+.border-radius p{
+  line-height: 15px;
+}
 
 /* オンラインストア h1 */
 .storeh1 {

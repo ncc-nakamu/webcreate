@@ -148,10 +148,38 @@ if (isset($_POST['logout'])) {
 
     <div class="swiper">
         <div class="swiper-wrapper">
-        <div class="swiper-slide slide1"><img src="images\haru.png" alt="春"></div>
-            <div class="swiper-slide slide2"><img src="images\natu.png" alt="夏"></div>
-            <div class="swiper-slide slide3"><img src="images\aki.png" alt="秋"></div>
-            <div class="swiper-slide slide4"><img src="images\fuyu.png" alt="冬"></div>
+        <div class="swiper-slide slide1">
+                <div class="border-radius">
+                    <h2>春</h2>
+                    <p> 4月中旬～<br>
+                        5月中旬頃
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide slide2">
+                <div class="border-radius">
+                    <h2>夏</h2>
+                    <p> 6月末～<br>
+                        8月中旬頃
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide slide3">
+                <div class="border-radius">
+                    <h2>秋</h2>
+                    <p> 8月中旬～<br>
+                        11月末頃
+                    </p>
+                </div>
+            </div>
+            <div class="swiper-slide slide4">
+                <div class="border-radius">
+                    <h2>冬</h2>
+                    <p> 10月～<br>
+                        3月末頃
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>

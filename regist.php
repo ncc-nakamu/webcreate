@@ -20,7 +20,7 @@ const DB_PASSWORD = '';
  */
 if (isset($_POST['regist_btn']) && 
    (isset($_POST['name'])       && $_POST['name']     != '') &&
-   (isset($_POST['login_id'])   && $_POST['login_id'] != '') &&
+   (isset($_POST['login_id'])   && filter_var($_POST['login_id'], FILTER_VALIDATE_EMAIL)) &&
    (isset($_POST['password'])   && $_POST['password'] != '')
 ) {
     /**
@@ -36,7 +36,7 @@ if (isset($_POST['regist_btn']) &&
     $password = $_POST['password'];
 
     // パスワードをハッシュ化する（★SQLインジェクション）
-    $password_hash = password_hash( $password, PASSWORD_DEFAULT );
+    $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
     try {
         /**
@@ -91,26 +91,29 @@ if (isset($_POST['regist_btn']) &&
             exit();
         }
     } catch (PDOException $e) {
-        echo '接続失敗' . $e->getMessage();
+        echo '接続失敗: ' . $e->getMessage();
         exit();
     }
     // DBとの接続を切る
     $pdo = null;
     $stmt = null;
+} else {
+    $err_msg = '正しいメールアドレスを入力してください。';
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ユーザー登録</title>
+    <title>会員登録画面</title>
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
     <div class="logo"><a href="index.php"><h1>ロゴ</h1></a></div>
     <section>
-        <form method="POST" action="account.php">
+        <form method="POST" action="regist.php">
             <h1 class="log">新規登録</h1>
 
             <!-- エラーメッセージ表示 -->
@@ -145,8 +148,27 @@ if (isset($_POST['regist_btn']) &&
             ?>
         </form>
     </section>
+
+    <script>
+        // フォームの初期状態でのラベルの位置を確認するためのスクリプト
+        document.querySelectorAll('.inputbox input').forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value !== '') {
+                    this.classList.add('has-value');
+                } else {
+                    this.classList.remove('has-value');
+                }
+            });
+            if (input.value !== '') {
+                input.classList.add('has-value');
+            }
+        });
+    </script>
 </body>
 </html>
+
+
+
 
 
 

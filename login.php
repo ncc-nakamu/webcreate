@@ -92,25 +92,44 @@ if (isset($_POST['login_btn']) &&
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン画面</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <div>
-        <h2>ログイン画面</h2>
+    <div class="logo"><a href="index.php"><h1>ロゴ</h1></a></div>
 
-        <!-- ログアウト成功メッセージ -->
-        <?php if(isset($success_logout_msg)) echo '<p class="success_logout_msg">' . $success_logout_msg . '</p>' ; ?>
-        
-        <!-- ログイン失敗メッセージ -->
-        <?php if(isset($err_msg)) echo '<p class="err-msg">' . $err_msg . '</p>' ; ?>
-
+    <section>
         <form action="login.php" method="post">
-            <p><label for="login_id">ID</label><input type="text" name="login_id"></p>
-            <p><label for="password">パスワード</label><input type="password" name="password"></p>
-            <input type="submit" value="ログイン" name="login_btn">
+            <h1 class="log">ログイン</h1>
+
+            <!-- エラーメッセージ表示 -->
+            <?php if(isset($success_logout_msg)) echo '<p class="success_logout_msg">' . $success_logout_msg . '</p>'; ?>
+            <?php if(isset($err_msg)) echo '<p class="err-msg">' . $err_msg . '</p>'; ?>
+
+            <div class="inputbox">
+                <ion-icon name="mail-outline"></ion-icon>
+                <input type="email" name="login_id" required>
+                <label for="login_id">ユーザー</label>
+            </div>
+
+            <div class="inputbox">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" name="password" required>
+                <label for="password">パスワード</label>
+            </div>
+
+            <div class="forget">
+                <label for=""><input type="checkbox">次回から自動的にログイン</label>
+                <a href="#">パスワードをお忘れですか？</a>
+            </div>
+
+            <button type="submit" name="login_btn">ログイン</button>
+
+            <div class="register">
+                <p>アカウントをお持ちでないですか？ <a href="regist.php">登録</a></p>
+            </div>
 
             <?php 
             // 不正リクエストチェック用のトークン生成（★CSRF）
@@ -119,9 +138,23 @@ if (isset($_POST['login_btn']) &&
             echo '<input type="hidden" name="login_token" value="'.$token.'" />';
             ?>
         </form>
-    
-        <a href="./regist.php">会員登録はこちら</a>
-    </div>
+    </section>
+
+    <script>
+        // フォームの初期状態でのラベルの位置を確認するためのスクリプト
+        document.querySelectorAll('.inputbox input').forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value !== '') {
+                    this.classList.add('has-value');
+                } else {
+                    this.classList.remove('has-value');
+                }
+            });
+            if (input.value !== '') {
+                input.classList.add('has-value');
+            }
+        });
+    </script>
 </body>
 </html>
 

@@ -232,10 +232,11 @@ if (isset($_POST['logout'])) {
             <!-- 他のメニューアイテムも同様に追加 -->
     </div>
 
-    <div class="instagram">
+    <!--<div class="instagram">
         <h1>instagram</h1>
     </div>
-
+    -->
+    
     <footer>
 
     </footer>

@@ -1,0 +1,129 @@
+/* 全体設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('wallpaperbetter.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+/* セクション（フォームを囲む部分） */
+section {
+    position: relative;
+    margin: auto;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.1); /* 半透明で背景を見せる */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(55px);
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+/* タイトル */
+.log {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo h1 {
+    font-size: 27px;
+    color: #fff;
+    padding: 2rem 5rem;
+}
+
+/* 入力ボックス */
+.inputbox {
+    position: relative;
+    margin: 20px 0;
+    border-bottom: 2px solid #fff;
+}
+
+.inputbox input {
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0 35px 0 5px;
+}
+
+.inputbox label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* 入力フィールドがフォーカスされたときのラベル位置調整 */
+.inputbox input:focus ~ label,
+.inputbox input:valid ~ label {
+    top: -10px;
+    font-size: 0.9rem;
+}
+
+/* ボタン */
+button {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* すでにアカウントがある場合のリンク */
+.login {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.login p {
+    font-size: 0.9rem;
+}
+
+.login a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+/* フォーム内のアイコン（必要に応じて追加） */
+.inputbox ion-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 1.2rem;
+}
+

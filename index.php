@@ -21,7 +21,7 @@
             <div class="links">
                 <ul>
                     <li><a class="active" href="#">農園とは</a></li>
-                    <li><a href="#">野菜について</a></li>
+                    <li><a href="#clam-top">野菜について</a></li>
                     <li><a href="#store-top">お買い物</a></li>
                     <li><a href="#news-top">お知らせ</a></li>
                     <li><a href="#">お問い合わせ</a></li>
@@ -32,15 +32,15 @@
             <label for="overlay-input" id="overlay-button"><span></span></label>
             <div class="bergar" id="overlay">
                 <ul>
-                <li><a href="#">ログイン</a></li>
+                <li><a href="login.php">ログイン</a></li>
                 <li><a href="#">ログアウト</a></li>
                 <li><a href="#">アカウント作成</a></li>
                 </ul>
             </div>
 
-            <div class="login-sec">
+            <!-- <div class="login-sec">
                 <a href="login.php"><button>ログイン</button></a>
-            </div>
+            </div> -->
 
         </nav>
 
@@ -56,26 +56,23 @@
 
     </div>
 
-    <div class="clamh1">
+    <div class="clamh1" id="clam-top">
         <h1>新潟の野菜</h1>
     </div>
     <div class="clam">
-        <p>2024/11/8<br>
-        【12月中旬-1月末発送】かぼちゃikkaプレミアムとさつまいもの予約販売を開始しました。サツマイモは11月20日以降発送です。<br>
-        販売ページはこちらどうぞ。<br>
-        .<br>
-        ■ネギ<br>
-        柔らかく甘い長ネギです。ネギの育ちやすい季節になり、太さも出てきました。甘味も増しています♪<br>
-        切って焼くだけでも美味しいですが、色々な料理に使えます。生だと爽やかな辛味と香りがあり、薬味としても美味しいです。<br>
-        .<br>
-        ■ビーツ<br>
-        栄養たっぷりの真っ赤なビーツです。ナチュレ片山さんでも販売していますが、直接販売することも可能です。もう少しで今期は終了です。<br>
-        ・<br>
-        ■■■ 販売している場所■■■<br>
-        ・ネギ：原信地場野菜コーナー、ナチュレ片山さん<br>
-        ・サツマイモ：原信地場野菜コーナー<br>
-        ・ビーツ：ナチュレ片山さん<br>
-        その他、飲食店様に向けて直接販売行っています。
+    <p>2024/12/12<br> 
+            【12月下旬-1月末発送】冬の味覚セットの予約販売を開始しました。発送は12月25日以降となります。<br>
+             販売ページはこちらどうぞ。<br>
+             .<br>
+              ■じねんじょ<br> 自然の甘みと粘り強さ、絶品の自然薯です。寒さが厳しくなるこの季節、一層甘味が増しています♪<br> すりおろしてとろろご飯にしたり、お鍋に入れても美味しいです。<br>
+             .<br> ■にんじん<br> シャキシャキ食感と甘みのあるにんじんです。冬の寒さに耐えて育ったにんじんは特に甘みが強くなります。<br> 生でサラダにしても、煮込み料理に使っても絶品です。<br>
+             .<br> ■れんこん<br> ほくほく食感のれんこんです。冬のれんこんは栄養価も高く、食べ応えがあります。<br> 炒め物や煮物に使うと、その食感と風味が一層引き立ちます。<br>
+             .<br>
+              ■■■ 販売している場所■■■<br>
+             ・じねんじょ：ncc○○、新潟○○○八百屋<br>
+             ・にんじん：ncc○○○○コーナー、○○○○<br>
+             ・れんこん：ncc○○○○、新潟○○ビル○○○○野菜コーナー<br>
+             その他、飲食店様に向けて直接販売行っています。
         </p>
     </div>
 
@@ -83,20 +80,20 @@
         <h1>お知らせ</h1>
     </div>
     <div class="news">
-        <div class="news-clam">
-            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\zinenjo.png" alt="11月ニュース"></span></a></div>
-                <h3>11月ニュースレター</h3>
-                <p>2024.10.11</p>
+    <div class="news-clam">
+            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\December.png" alt="12月ニュース"></span></a></div>
+                <h3>12月ニュースレター</h3>
+                <p>2024.12.11</p>
         </div>
         <div class="news-clam">
-            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\ithigo.png" alt="10月ニュース"></span></a></div>
-                <h3>10月ニュースレター</h3>
+            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\November.png" alt="11月ニュース"></span></a></div>
+                <h3>11月ニュースレター</h3>
                 <p>2024.11.11</p>
         </div>
         <div class="news-clam">
-            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\renkon.png" alt="9月ニュース"></span></a></div>
-                <h3>9月ニュースレター</h3>
-                <p>2024.9.11</p>
+            <div class="zoomIn"><a href="#"><span class="mask"><img src="images\October.png" alt="10月ニュース"></span></a></div>
+                <h3>10月ニュースレター</h3>
+                <p>2024.10.11</p>
         </div>
     </div>   
 
@@ -106,10 +103,10 @@
 
     <div class="swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide slide1"><img src="images\ithigo.png" alt="いちご"></div>
-            <div class="swiper-slide slide2"><img src="images\renkon.png" alt="れんこん"></div>
-            <div class="swiper-slide slide3"><img src="images\nihonnashi.png" alt="日本なし"></div>
-            <div class="swiper-slide slide4"><img src="images\rurekuthe.png" alt="西洋なし"></div>
+        <div class="swiper-slide slide1"><img src="images\haru.png" alt="春"></div>
+            <div class="swiper-slide slide2"><img src="images\natu.png" alt="夏"></div>
+            <div class="swiper-slide slide3"><img src="images\aki.png" alt="秋"></div>
+            <div class="swiper-slide slide4"><img src="images\fuyu.png" alt="冬"></div>
         </div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>

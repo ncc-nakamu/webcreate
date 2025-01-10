@@ -120,9 +120,13 @@ if (isset($_POST['login_btn']) &&
                 <label for="password">パスワード</label>
             </div>
 
-
-
             <button type="submit" name="login_btn">ログイン</button>
+
+
+            <div class="forget">
+                <label for=""><input type="checkbox">次回から自動的にログイン</label>
+                <a href="#">パスワードをお忘れですか？</a>
+            </div>
 
             <div class="register">
                 <p>アカウントをお持ちでないですか？ <a href="regist.php">登録</a></p>

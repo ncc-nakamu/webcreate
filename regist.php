@@ -111,7 +111,7 @@ if (isset($_POST['regist_btn']) &&
     <link rel="stylesheet" href="style3.css">
 </head>
 <body>
-    <div class="logo"><a href="index.php"><h1>ロゴ</h1></a></div>
+    <div class="logo"><a href="index.php"><h1>ホーム</h1></a></div>
     <section>
         <form method="POST" action="regist.php">
             <h1 class="log">新規登録</h1>

@@ -98,7 +98,7 @@ if (isset($_POST['login_btn']) &&
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <div class="logo"><a href="index.php"><h1>ロゴ</h1></a></div>
+    <div class="logo"><a href="index.php"><h1>ホーム</h1></a></div>
 
     <section>
         <form action="login.php" method="post">

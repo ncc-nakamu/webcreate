@@ -1,0 +1,285 @@
+:root {
+    /* カスタムカラー変数 */
+    --text-color: #663300;
+    --text-color-blend: #030558;
+    --back-up-color: #663300;
+}
+
+* {
+    /* グローバルリセットと基本フォント設定 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif; /* 代替フォントを使用 */
+    font-optical-sizing: auto;
+}
+
+body {
+    background-color: #FFF5EE;
+    color: #663300;
+    margin: 0;
+    font-family: arial;
+    width: 100vw;
+    height: 100vh;
+    animation: bugfix infinite 1s;
+    -webkit-animation: bugfix infinite 1s;
+    width: 100%;
+    height: 100vh;
+    background: url(images/noen.png); /* 背景画像 */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  
+  @keyframes bugfix {
+    from {
+      padding: 0;
+    }
+    to {
+      padding: 0;
+    }
+  }
+  @-webkit-keyframes bugfix {
+    from {
+      padding: 0;
+    }
+    to {
+      padding: 0;
+    }
+  }
+  #overlay-button {
+    position: absolute;
+    right: 4em;
+    top: 1em;
+    padding: 26px 11px;
+    z-index: 5;
+    cursor: pointer;
+    user-select: none;
+  }
+  #overlay-button span {
+    height: 4px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: #000;
+    position: relative;
+    display: block;
+    transition: all .2s ease-in-out;
+  }
+  #overlay-button span:before {
+    top: -10px;
+    visibility: visible;
+  }
+  #overlay-button span:after {
+    top: 10px;
+  }
+  #overlay-button span:before, #overlay-button span:after {
+    height: 4px;
+    width: 35px;
+    border-radius: 2px;
+    background-color: #000;
+    position: absolute;
+    content: "";
+    transition: all .2s ease-in-out;
+  }
+  #overlay-button:hover span, #overlay-button:hover span:before, #overlay-button:hover span:after {
+    background: #fff;
+  }
+  
+  input[type=checkbox] {
+    display: none; 
+    
+  }
+  
+  input[type=checkbox]:checked ~ #overlay {
+    visibility: visible; 
+  }
+  
+  input[type=checkbox]:checked ~ #overlay-button:hover span, input[type=checkbox]:checked ~ #overlay-button span {
+    background: transparent;
+    
+    
+  }
+  input[type=checkbox]:checked ~ #overlay-button span:before {
+    transform: rotate(45deg) translate(7px, 7px);
+  
+  }
+  input[type=checkbox]:checked ~ #overlay-button span:after {
+    transform: rotate(-45deg) translate(7px, -7px);
+  
+  
+  }
+  
+  #overlay {
+    height: 200vh;
+    width: 60vh;
+    right: 0;
+    background: #ec6451;
+    z-index: 2;
+    visibility: hidden;
+    position: absolute;
+  }
+ 
+  #overlay ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+    height: 280vh;
+    padding-left: 0;
+    list-style-type: none;
+  }
+  #overlay ul li {
+    padding: 1em;
+  }
+  #overlay ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    writing-mode:sideways-lr;
+  }
+
+  #overlay ul li a:hover {
+    color: #000!important;
+  }
+
+header {
+    /* 背景設定 */
+    height: 10vh;
+    z-index: 10;
+}
+
+/* ロゴの位置指定 */ 
+.header-logo {
+    top: 2rem;
+    margin-left: 4rem;
+    position: fixed;
+}
+
+/* ロゴの画像サイズ指定 */
+.logo-image {
+    width: 60px;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+/* ナビゲーションバーのスタイリング */ 
+nav {
+    width: 100%;
+    padding: 1rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed; /* 固定 */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* 他の要素より前面に表示 */ 
+}
+
+nav ul{
+    display: flex;
+    text-align: center;
+    list-style: none;
+    gap: 3rem;
+    margin-left: 250px;
+}
+
+nav li{
+    display: table-cell;
+    min-width: 50px;
+    }
+
+nav a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    padding-bottom: 5px;
+        
+    color: #663300;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 10px 15px;
+    transition: 0.6s;
+}
+
+
+nav li:hover{
+    color: #663300;
+    border-bottom: 3px solid #663300;
+}
+
+nav li.active{
+    border-bottom: 3px solid #663300;
+}
+
+button {
+    /* ボタンのスタイリング */
+    border: 2px solid var(--back-up-color);
+    background: transparent;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--back-up-color);
+    cursor: pointer;
+    transition: 0.65s;
+}
+
+button:hover {
+    /* ボタンのホバー時の色変更 */
+    background-color: var(--back-up-color);
+    color: #000;
+}
+
+/* メニュー個別ページ */
+#store-colam {
+    background-color: burlywood;
+    z-index: 100;
+    display: inline-block;
+    width: 1100px;
+    height: 520px;
+    margin: 40px 220px auto; /* ここを変更して中央に配置 */   
+    border-radius: 30px;
+    padding: 15px;
+    color: #663300;
+}
+
+#store-colam .storeleft {
+    display: flex;
+}
+
+#store-colam .store-flex{
+    display: flex;
+}
+
+#store-colam .colam{
+    width: 100%;
+    margin-left: 20px;
+}
+
+#store-colam .colamleft{
+    margin-left: 20px;
+}
+
+footer {
+    margin-top: 50px;
+    align-items: center;
+    text-align: center;
+}
+
+/* 農園とは */
+
+.clam {
+  text-align:center;
+  width: 970px;
+  height: 600px;
+  margin: auto;
+  padding: 50px 50px 50px 50px;
+  background-color: burlywood;
+}
+.clam p{
+  text-align: left;
+}

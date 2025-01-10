@@ -1,45 +1,5 @@
 <?php 
-/**
- * セッションスタート
- */
-ini_set('session.gc_maxlifetime', 1800);
-ini_set('session.gc_divisor', 1);
-session_start();
-session_regenerate_id(); // セッションIDを新しいものに置き換える（★セッションハイジャック）
 
-/**
- * ログインしていなければログイン画面へ強制リダイレクト
- */
-if (! isset($_SESSION['user1'])) {
-    header('Location: ./login.php');
-    exit();
-}
-
-/**
- * ログアウト
- */
-if (isset($_POST['logout'])) {
-
-    // トークンチェック（★CSRF）
-    if (empty($_SESSION['logout_token']) || ($_SESSION['logout_token'] !== $_POST['logout_token'])) exit('不正な投稿です');
-    if (isset($_SESSION['logout_token'])) unset($_SESSION['logout_token']);//トークン破棄
-    if (isset($_POST['logout_token'])) unset($_POST['logout_token']);//トークン破棄
-    
-    /**
-     * セッションを破棄する（★セッションハイジャック）
-     */
-    // セッション変数の中身をすべて破棄
-    $_SESSION = array();
-    // クッキーに保存されているセッションIDを破棄
-    if (isset($_COOKIE["PHPSESSID"])) setcookie("PHPSESSID", '', time() - 1800, '/');
-    // セッションを破棄
-    session_destroy();
-
-    // ログインページに戻る
-    $msg = urlencode("ログアウトしました。");
-    header('Location: ./login.php?msg=' . $msg);
-    exit();
-}
 
 ?>
 <!DOCTYPE html>
@@ -56,7 +16,7 @@ if (isset($_POST['logout'])) {
 <body>
     <header>
         <div class="header-logo">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="images\ncc.png" alt="logo" width="50" height="60" class="logo-image">
             </a>
         </div>
@@ -64,10 +24,10 @@ if (isset($_POST['logout'])) {
         <nav>
             <div class="links">
                 <ul>
-                    <li><a class="active" href="#">農園とは</a></li>
-                    <li><a href="#clam-top">野菜について</a></li>
-                    <li><a href="#store-top">お買い物</a></li>
-                    <li><a href="#news-top">お知らせ</a></li>
+                    <li><a class="active" href="noen-clam.php">農園とは</a></li>
+                    <li><a href="index.php#clam-top">野菜について</a></li>
+                    <li><a href="index.php#store-top">お買い物</a></li>
+                    <li><a href="index.php#news-top">お知らせ</a></li>
                     <li><a href="#">お問い合わせ</a></li>
                 </ul>
             </div>
@@ -193,19 +153,19 @@ if (isset($_POST['logout'])) {
     <div class="store">
             <br>
             <div class="store-item">
-                <div class="zoomIn"><a href="#"><span class="mask"><img src="images\zinenjo.png" alt="じねんじょ"></span></a></div>
+                <div class="zoomIn"><a href="store-zinengo.php"><span class="mask"><img src="images\zinenjo.png" alt="じねんじょ"></span></a></div>
                 <h3>じねんじょ</h3>
                 <p>自然の甘みと粘り強さ、<br>絶品の自然薯をお届けします。</p>
                 <span>¥300</span>
             </div>
             <div class="store-item">
-                <div class="zoomIn"><a href="#"><span class="mask"><img src="images\ningin.png" alt="にんじん"></span></a></div>
+                <div class="zoomIn"><a href="store-ningin.php"><span class="mask"><img src="images\ningin.png" alt="にんじん"></span></a></div>
                 <h3>にんじん</h3>
                 <p>シャキシャキ食感と甘みの人参、<br>旬の味わいを楽しんでください。</p>
                 <span>¥200</span>
             </div>
             <div class="store-item">
-                <div class="zoomIn"><a href="#"><span class="mask"><img src="images\renkon.png" alt="れんこん"></span></a></div>
+                <div class="zoomIn"><a href="store-renkon.php"><span class="mask"><img src="images\renkon.png" alt="れんこん"></span></a></div>
                 <h3>れんこん</h3>
                 <p>ほくほく食感の蓮根、<br>栄養たっぷりで食卓を彩ります。</p>
                 <span>¥600</span>
@@ -213,19 +173,19 @@ if (isset($_POST['logout'])) {
     </div>
     <div class="store">
             <div class="store-item">
-                <div class="zoomIn"><a href="#"><span class="mask"><img src="images\rurekuthe.png" alt="西洋なし"></span></a></div>
+                <div class="zoomIn"><a href="store-rurekuthe.php"><span class="mask"><img src="images\rurekuthe.png" alt="西洋なし"></span></a></div>
                 <h3>西洋なし</h3>
                 <p>西洋なしの最高峰。<br>とろけるような食感と芳醇な香り。</p>
                 <span>¥800</span>
             </div>
             <div class="store-item">
-                <div class="zoomIn"><a href="#"><span class="mask"><img src="images\nihonnashi.png" alt="日本なし"></span></a></div>
+                <div class="zoomIn"><a href="store-nihonnashi.php"><span class="mask"><img src="images\nihonnashi.png" alt="日本なし"></span></a></div>
                 <h3>日本なし</h3>
                 <p>ジューシーで甘い、日本梨の<br>本当の美味しさを味わってください。</p>
                 <span>¥300</span>
             </div>
             <div class="store-item">
-                <div class="zoomIn"><a href="#"><span class="mask"><img src="images\ithigo.png" alt="いちご"></span></a></div>
+                <div class="zoomIn"><a href="store-ithigo.php"><span class="mask"><img src="images\ithigo.png" alt="いちご"></span></a></div>
                 <h3>いちご</h3>
                 <p>甘くほどよい酸味とのバランス<br>もよくとてもジューシーないちご。</p>
                 <span>¥400</span>
@@ -239,7 +199,7 @@ if (isset($_POST['logout'])) {
     -->
 
     <footer>
-
+        <p>&copy; 2024 新潟野菜販売web</p>
     </footer>
 
     <script>
